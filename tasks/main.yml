@@ -1,0 +1,24 @@
+---
+- name: Check terrahelp version
+  shell: "terrahelp --version 2>&1 | grep {{terrahelp_version}}"
+  failed_when: false
+  changed_when: false
+  register: terrahelp_versions_match
+
+- include: download.yml
+  when: terrahelp_versions_match.rc != 0
+
+- name: Copy tmp file /usr/local/bin
+  copy:
+    remote_src: yes
+    src: /tmp/terrahelp-{{terrahelp_version}}
+    dest: /usr/local/bin/terrahelp
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Remove tmp file
+  file:
+    path: /tmp/terrahelp-{{terrahelp_version}}
+    state: absent
+...

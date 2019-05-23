@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: terrahelp
+  author: andrelohmann
+  description: ansible galaxy role to install terrahelp, a program to en/decrypt terraform state files
+  company: smartformer UG
+
+  license: MIT
+
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: Ubuntu
+      versions:
+      - xenial
+      - bionic
+
+  galaxy_tags:
+  - terraform
+  - terrahelp
+...

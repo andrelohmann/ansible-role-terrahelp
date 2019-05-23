@@ -1,0 +1,6 @@
+---
+- name: Download terraform archive Linux 64 bits
+  get_url:
+    url: https://github.com/opencredo/terrahelp/releases/download/{{ terrahelp_version }}/terrahelp-linux-amd64
+    dest: /tmp/terrahelp-{{terrahelp_version}}
+...
